@@ -11,7 +11,7 @@ export function useFetch(url) {
         const json = await res.json();
         setData(json);
         setLoading(false);
-      } catch (error) {
+      } catch (err) {
         setError(err);
         setLoading(false);
       }
