@@ -1,8 +1,14 @@
 import { useState } from "react";
 import "./App.css";
+import { useFetch } from "./hooks/useFetch";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { error, loading, data } = useFetch(
+    "https://jsonplaceholder.typicode.com/todos/1"
+  );
+
+  console.log("loading", loading);
+  console.log("here", data);
 
   return (
     <div className="App">
