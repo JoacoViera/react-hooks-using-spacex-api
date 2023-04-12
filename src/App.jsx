@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import { useFetch } from "./hooks/useFetch";
 import ErrorPage from "./Pages/ErrorPage";
@@ -8,9 +7,7 @@ function App() {
     "https://api.spacexdata.com/v4/rockets"
   );
 
-  console.log("loading", loading);
-  console.log("here", data);
-  console.log("error", error);
+  console.log("request", { data, error, loading });
 
   if (loading) return <Loader />;
 
