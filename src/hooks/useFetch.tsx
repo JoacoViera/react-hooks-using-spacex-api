@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 interface State<T> {
   data?: T;
-  loading?: boolean;
+  loading: boolean;
   error?: Error;
 }
 
@@ -18,10 +18,11 @@ function useFetch<T = unknown>(url: string): State<T> {
         if (!response.ok) {
           throw new Error(`${response.status} ${response.statusText}`);
         }
-
         const jsonResponse = await response.json();
         setData(jsonResponse);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1500);
       } catch (err: any) {
         setError(err);
         setLoading(false);
